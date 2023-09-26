@@ -1,0 +1,2 @@
+# AOC_AngeloGuilhermeLeonam_UFRR_2023
+Computer Architecture and Organization final project
