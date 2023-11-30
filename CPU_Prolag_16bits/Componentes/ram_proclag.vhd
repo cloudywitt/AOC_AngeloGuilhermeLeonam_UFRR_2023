@@ -1,3 +1,5 @@
+-- Código em VHDL que descreve a memória RAM do processador "Prolag"
+
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
 USE IEEE.numeric_std.all;
@@ -16,7 +18,7 @@ ARCHITECTURE procedimento OF ram_proclag IS
 SIGNAL int: integer;
 SIGNAL ram_endereco: std_logic_vector(8-1 downto 0);
 
-TYPE mem_de_dados is array (0 to 255) OF std_logic_vector(16-1 downto 0); -- memoria de dados é array 2^8 e em cada posição/célula recebe 16 bits que tem 65535 combinações
+TYPE mem_de_dados is array (0 to 255) OF std_logic_vector(16-1 downto 0);
 
 SIGNAL RAM: mem_de_dados := ( (others => (others => '0') ) ); -- mesmo que mem_de_dados := others => "0000000000000000"
 
