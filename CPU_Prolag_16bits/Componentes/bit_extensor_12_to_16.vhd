@@ -1,3 +1,5 @@
+-- Extensor de 12 bits para 16 bits
+
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
 
