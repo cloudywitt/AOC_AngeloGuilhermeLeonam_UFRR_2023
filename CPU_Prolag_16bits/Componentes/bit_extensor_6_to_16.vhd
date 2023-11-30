@@ -1,7 +1,4 @@
--- Referência
--- https://stackoverflow.com/questions/71451527/how-to-sign-extend-a-4bit-vector-to-16bit-vector-in-vhdl
--- https://stackoverflow.com/questions/17451492/how-to-convert-8-bits-to-16-bits-in-vhdl
--- https://github.com/ed-henrique/8-bit-CPU/blob/main/CPU_EK/EXTENSOR_4X8.vhd
+-- Extensor de 6 bits para 16 bits
 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.all;
