@@ -2,7 +2,7 @@
 -- Banco de Registradores (BDR)
 --
 -- Armazena os registradores com seus respectivos valores e
--- realiza as operaç~oes de escrita e leitura.
+-- realiza as operações de escrita e leitura.
 ------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -15,7 +15,7 @@ entity bdr is
 		ESC_REG : IN std_logic; -- sinal de controle
 		REG1_ENDERECO : IN std_logic_vector(2 downto 0);
 		REG2_ENDERECO : IN std_logic_vector(2 downto 0);
-		ENDERECO_REG_ESC : IN std_logic_vector(2 downto 0); -- Escrita em registradores
+		ENDERECO_REG_ESC : IN std_logic_vector(2 downto 0);
 		DADO_ESC : IN std_logic_vector(15 downto 0);
 		
 		-- Saídas
@@ -29,10 +29,10 @@ architecture main of bdr is
 	
 	signal banco_de_reg : bdr_tipo;
 begin
-	process(CLOCK) -- faz executar o process toda vez q os valores dentro mudam
+	process(CLOCK) -- Executa toda a vez que o clock altera
 	begin
 		if rising_edge(CLOCK) then
-		-- Operação de escrita em registradores
+            -- Operação de escrita em registradores
 			if (ESC_REG = '1') then
 				banco_de_reg(to_integer(unsigned(ENDERECO_REG_ESC))) <= DADO_ESC;
 			end if;

@@ -1,27 +1,20 @@
 -- Processador
 library ieee;
 use ieee.std_logic_1164.all;
--- ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
--- use ieee.std_logic_arith.all;
 
 entity prolag is 
 	port(
 		CLOCK : IN std_logic;
 		
-		-- saídas dos componentes (usados para monitoramento no waveform)
-		PC_SAIDA : OUT std_logic_vector(15 downto 0);
-		
-		ROM_SAIDA : OUT std_logic_vector(15 downto 0);
-		
+		-- Saídas dos componentes (usados para monitoramento em waveform)
+		PC_SAIDA                 : OUT std_logic_vector(15 downto 0);
+		ROM_SAIDA                : OUT std_logic_vector(15 downto 0);
 		BDR_SAIDA_1, BDR_SAIDA_2 : OUT std_logic_vector(15 downto 0);
-		
-		-- Ula
-		ULA_RESULTADO : OUT std_logic_vector(15 downto 0);
-		
-		RAM_SAIDA : OUT std_logic_vector(15 downto 0);
-		R_DEST: OUT std_logic;
-		MEM_TO_REG_S: OUT std_logic
+		ULA_RESULTADO            : OUT std_logic_vector(15 downto 0);
+		RAM_SAIDA                : OUT std_logic_vector(15 downto 0);
+		R_DEST                   : OUT std_logic;
+		MEM_TO_REG_S             : OUT std_logic
 		
 		-- MUX_2X1_SAIDA : OUT std_logic_vector(15 downto 0)
 	);
@@ -32,12 +25,14 @@ architecture main of prolag is
 -- Banco de Registradores
 component bdr is 
 	port(
-		CLOCK : IN std_logic;
-		ESC_REG : IN std_logic;
-		REG1_ENDERECO : IN std_logic_vector(2 downto 0);
-		REG2_ENDERECO : IN std_logic_vector(2 downto 0);
+		CLOCK            : IN std_logic;
+
+        -- Entradas
+		ESC_REG          : IN std_logic;
+		REG1_ENDERECO    : IN std_logic_vector(2 downto 0);
+		REG2_ENDERECO    : IN std_logic_vector(2 downto 0);
 		ENDERECO_REG_ESC : IN std_logic_vector(2 downto 0);
-		DADO_ESC : IN std_logic_vector(15 downto 0);
+		DADO_ESC         : IN std_logic_vector(15 downto 0);
 		
 		-- Saídas
 		REG1_VALOR : OUT std_logic_vector(15 downto 0);
@@ -47,14 +42,10 @@ end component;
 
 -- Program Counter
 component pc is
-	generic(
-		BITS_NUM : natural := 16
-	);
-	
 	port(
-		CLOCK			    	: IN std_logic;
-		ENDERECO_ENTRADA	: IN std_logic_vector (BITS_NUM-1 downto 0);
-		ENDERECO_SAIDA  	: OUT std_logic_vector (BITS_NUM-1 downto 0)
+		CLOCK		    	: IN std_logic;
+		ENDERECO_ENTRADA	: IN std_logic_vector (15 downto 0);
+		ENDERECO_SAIDA  	: OUT std_logic_vector (15 downto 0)
 	);
 end component;
 
@@ -77,14 +68,10 @@ end component;
 
 -- Memória de Instruções (ROM)
 component rom_mem is
-	generic(
-		BITS_NUM : natural := 16
-	);
-	
 	port(
-		CLOCK					: in std_logic;
-		ENDERECO_RECEBIDO	: in std_logic_vector(BITS_NUM-1 downto 0);
-		INSTRUCAO_CUSPIDA	: out std_logic_vector(BITS_NUM-1 downto 0)
+		CLOCK				: in std_logic;
+		ENDERECO_RECEBIDO	: in std_logic_vector(15 downto 0);
+		INSTRUCAO_CUSPIDA	: out std_logic_vector(15 downto 0)
     );
 end component;
 
@@ -147,23 +134,22 @@ signal PC_S: std_logic_vector(15 downto 0);
 signal ROM_S : std_logic_vector(15 downto 0);
 
 -- Divisão da Instrução
--- alias OP: std_logic_vector(3 downto 0) is ROM_S(15 downto 12);
--- alias RD: std_logic_vector(2 downto 0) is ROM_S(11 downto 9);
--- alias RS: std_logic_vector(2 downto 0) is ROM_S(8 downto 6);
--- alias RT: std_logic_vector(2 downto 0) is ROM_S(5 downto 3);
--- alias F: std_logic_vector(2 downto 0) is ROM_S(2 downto 0);
+alias OP: std_logic_vector(3 downto 0) is ROM_S(15 downto 12);
+alias RD: std_logic_vector(2 downto 0) is ROM_S(11 downto 9);
+alias RS: std_logic_vector(2 downto 0) is ROM_S(8 downto 6);
+alias RT: std_logic_vector(2 downto 0) is ROM_S(5 downto 3);
+alias F: std_logic_vector(2 downto 0) is ROM_S(2 downto 0);
+alias SALTO: std_logic_vector(11 downto 0) is ROM_S(11 downto 0);
 -- signal OP: std_logic_vector(3 downto 0);
 -- OP <= ROM_S(15 downto 12);
 alias ENDERECO: std_logic_vector(5 downto 0) is ROM_S(5 downto 0);
 
--- alias SALTO: std_logic_vector(12 downto 0) is ROM_S(12 downto 0);
-
-signal OP: std_logic_vector(3 downto 0);
-signal RD: std_logic_vector(2 downto 0);
-signal RS: std_logic_vector(2 downto 0);
-signal RT: std_logic_vector(2 downto 0);
-signal F: std_logic_vector(2 downto 0);
-signal SALTO: std_logic_vector(11 downto 0);
+-- signal OP: std_logic_vector(3 downto 0);
+-- signal RD: std_logic_vector(2 downto 0);
+-- signal RS: std_logic_vector(2 downto 0);
+-- signal RT: std_logic_vector(2 downto 0);
+-- signal F: std_logic_vector(2 downto 0);
+-- signal SALTO: std_logic_vector(11 downto 0);
 -- signal R_entrada_1
 -- signal r_entrada_2
 
@@ -209,12 +195,12 @@ begin
 	                                      -- dangerous code below
 	PORT_MUX_SALTO : mux2x1 port map(PC_INCREMENTADO, EXTENSOR_DO_ENDERECO, AND_0, MUX_DO_PC);-- see how to turn the increment into a separated signal
 
-	OP <= ROM_S(15 downto 12);
-	RD <= ROM_S(11 downto 9);
-	RS <= ROM_S(8 downto 6);
-	RT <= ROM_S(5 downto 3);
-	F <= ROM_S(2 downto 0);
-	SALTO <= ROM_S(11 downto 0);
+--	OP <= ROM_S(15 downto 12);
+--	RD <= ROM_S(11 downto 9);
+--	RS <= ROM_S(8 downto 6);
+--	RT <= ROM_S(5 downto 3);
+--	F <= ROM_S(2 downto 0);
+--	SALTO <= ROM_S(11 downto 0);
 	
 	PC_INCREMENTADO <= std_logic_vector(unsigned(PC_S) + to_unsigned(1, PC_S'length));
 	AND_0 <= FLAG_BRANCH and ZERO_ULA;

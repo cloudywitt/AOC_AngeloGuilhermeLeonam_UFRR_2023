@@ -10,16 +10,10 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity pc is
-	-- como se fossem declaraçao de constantes, para reduzir magic numbers
-	generic(
-		BITS_NUM : natural := 16 -- numero de bits do processador
-	);
-	
 	port(
-		--- Sinal de clock: responsavel por sincronizar a execuçao dos componentes
-		CLOCK			    	: IN std_logic;
-		ENDERECO_ENTRADA	: IN std_logic_vector (BITS_NUM-1 downto 0);
-		ENDERECO_SAIDA  	: OUT std_logic_vector (BITS_NUM-1 downto 0)
+        CLOCK				: IN std_logic;
+		ENDERECO_ENTRADA	: IN std_logic_vector (15 downto 0);
+		ENDERECO_SAIDA  	: OUT std_logic_vector (15 downto 0)
 	);
 end entity;
 

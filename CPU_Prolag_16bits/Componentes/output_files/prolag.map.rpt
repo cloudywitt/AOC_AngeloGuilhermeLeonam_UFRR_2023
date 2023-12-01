@@ -1,5 +1,5 @@
 Analysis & Synthesis report for prolag
-Fri Dec  1 16:59:34 2023
+Fri Dec  1 18:37:33 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -16,11 +16,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   8. Registers Removed During Synthesis
   9. General Register Statistics
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: pc:PORT_PC
- 12. Parameter Settings for User Entity Instance: rom_mem:PORT_ROM
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -46,7 +44,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Dec  1 16:59:34 2023       ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec  1 18:37:33 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; prolag                                      ;
 ; Top-level Entity Name           ; prolag                                      ;
@@ -297,26 +295,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: pc:PORT_PC ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; bits_num       ; 16    ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rom_mem:PORT_ROM ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; bits_num       ; 16    ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -359,7 +337,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Dec  1 16:59:25 2023
+    Info: Processing started: Fri Dec  1 18:37:23 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off prolag -c prolag
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -382,56 +360,56 @@ Info (12021): Found 2 design units, including 1 entities, in source file mux2x1_
     Info (12022): Found design unit 1: mux2x1_3b-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/mux2x1_3b.vhd Line: 12
     Info (12023): Found entity 1: mux2x1_3b File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/mux2x1_3b.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
-    Info (12022): Found design unit 1: pc-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/pc.vhd Line: 26
+    Info (12022): Found design unit 1: pc-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/pc.vhd Line: 20
     Info (12023): Found entity 1: pc File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/pc.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file rom_mem.vhd
-    Info (12022): Found design unit 1: rom_mem-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 50
-    Info (12023): Found entity 1: rom_mem File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 37
+    Info (12022): Found design unit 1: rom_mem-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 46
+    Info (12023): Found entity 1: rom_mem File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 38
 Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
     Info (12022): Found design unit 1: uc-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 44
     Info (12023): Found entity 1: uc File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 24
 Info (12021): Found 2 design units, including 1 entities, in source file prolag.vhd
-    Info (12022): Found design unit 1: prolag-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 30
-    Info (12023): Found entity 1: prolag File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 8
+    Info (12022): Found design unit 1: prolag-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 23
+    Info (12023): Found entity 1: prolag File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file mux2x1.vhd
     Info (12022): Found design unit 1: mux2x1-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/mux2x1.vhd Line: 12
     Info (12023): Found entity 1: mux2x1 File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/mux2x1.vhd Line: 4
 Info (12127): Elaborating entity "prolag" for the top level hierarchy
-Info (12128): Elaborating entity "pc" for hierarchy "pc:PORT_PC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 198
-Info (12128): Elaborating entity "rom_mem" for hierarchy "rom_mem:PORT_ROM" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 199
-Warning (10492): VHDL Process Statement warning at rom_mem.vhd(74): signal "rom_mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 74
-Warning (10492): VHDL Process Statement warning at rom_mem.vhd(74): signal "ENDERECO_RECEBIDO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 74
-Info (12128): Elaborating entity "uc" for hierarchy "uc:PORT_UC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 200
+Info (12128): Elaborating entity "pc" for hierarchy "pc:PORT_PC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 184
+Info (12128): Elaborating entity "rom_mem" for hierarchy "rom_mem:PORT_ROM" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at rom_mem.vhd(70): signal "rom_mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at rom_mem.vhd(70): signal "ENDERECO_RECEBIDO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 70
+Info (12128): Elaborating entity "uc" for hierarchy "uc:PORT_UC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 186
 Warning (10492): VHDL Process Statement warning at uc.vhd(55): signal "FUNCT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 55
-Info (12128): Elaborating entity "mux2x1_3b" for hierarchy "mux2x1_3b:PORT_MUX_ENTRADA_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 201
-Info (12128): Elaborating entity "bdr" for hierarchy "bdr:PORT_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 202
+Info (12128): Elaborating entity "mux2x1_3b" for hierarchy "mux2x1_3b:PORT_MUX_ENTRADA_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 187
+Info (12128): Elaborating entity "bdr" for hierarchy "bdr:PORT_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 188
 Warning (10492): VHDL Process Statement warning at bdr.vhd(41): signal "banco_de_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 41
 Warning (10492): VHDL Process Statement warning at bdr.vhd(41): signal "REG1_ENDERECO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 41
 Warning (10492): VHDL Process Statement warning at bdr.vhd(42): signal "banco_de_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 42
 Warning (10492): VHDL Process Statement warning at bdr.vhd(42): signal "REG2_ENDERECO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 42
-Info (12128): Elaborating entity "bit_extensor_6_to_16" for hierarchy "bit_extensor_6_to_16:PORT_EXTENSOR_BAIXO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 203
-Info (12128): Elaborating entity "bit_extensor_12_to_16" for hierarchy "bit_extensor_12_to_16:PORT_EXTENSOR_DO_ENDERECO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 204
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PORT_MUX_ULA_ENTRADA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 205
-Info (12128): Elaborating entity "ula_proclag" for hierarchy "ula_proclag:PORT_ULA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 206
-Info (12128): Elaborating entity "ram_proclag" for hierarchy "ram_proclag:PORT_MEMORIA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 207
+Info (12128): Elaborating entity "bit_extensor_6_to_16" for hierarchy "bit_extensor_6_to_16:PORT_EXTENSOR_BAIXO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 189
+Info (12128): Elaborating entity "bit_extensor_12_to_16" for hierarchy "bit_extensor_12_to_16:PORT_EXTENSOR_DO_ENDERECO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 190
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PORT_MUX_ULA_ENTRADA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 191
+Info (12128): Elaborating entity "ula_proclag" for hierarchy "ula_proclag:PORT_ULA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 192
+Info (12128): Elaborating entity "ram_proclag" for hierarchy "ram_proclag:PORT_MEMORIA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 193
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "ram_proclag:PORT_MEMORIA|RAM" is uninferred due to asynchronous read logic File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/ram_proclag.vhd Line: 23
     Info (276007): RAM logic "bdr:PORT_BDR|banco_de_reg" is uninferred due to asynchronous read logic File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 30
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ROM_SAIDA[1]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[2]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[3]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[4]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[5]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[6]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[7]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[8]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[9]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[10]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[11]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "ROM_SAIDA[15]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 15
-    Warning (13410): Pin "R_DEST" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 23
-    Warning (13410): Pin "MEM_TO_REG_S" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 24
+    Warning (13410): Pin "ROM_SAIDA[1]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[2]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[3]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[4]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[5]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[6]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[7]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[8]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[9]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[10]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[11]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "ROM_SAIDA[15]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
+    Warning (13410): Pin "R_DEST" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 16
+    Warning (13410): Pin "MEM_TO_REG_S" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 32 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -441,9 +419,9 @@ Info (21057): Implemented 170 device resources after synthesis - the final resou
     Info (21059): Implemented 98 output pins
     Info (21061): Implemented 71 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 1074 megabytes
-    Info: Processing ended: Fri Dec  1 16:59:34 2023
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 1070 megabytes
+    Info: Processing ended: Fri Dec  1 18:37:33 2023
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:25
 
 
