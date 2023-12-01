@@ -1,0 +1,349 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "PC_SAIDA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[10]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[11]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[12]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[13]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[14]",
+					"strict" : false
+				},
+				{
+					"name" : "PC_SAIDA[15]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[14]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[8]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[9]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[10]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[11]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[12]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[13]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[14]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_1[15]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[8]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[9]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[10]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[11]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[12]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[13]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "BDR_SAIDA_2[15]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_RESULTADO[15]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RAM_SAIDA[15]",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
