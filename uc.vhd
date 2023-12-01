@@ -33,8 +33,8 @@ entity uc is
 		REG_DEST     : OUT std_logic; -- Define se vai escrever em rd (sinal 1) ou rt (sinal 0)
 		BRANCH		 : OUT std_logic; -- Lança o sinal positivo quando o salto depende do resultado de uma operação da ULA
 		LER_MEM      : OUT std_logic; -- Joga o conteúdo do endereço dado na saída da memória
-		MEM_PARA_REG : OUT std_logic; -- O valor de escrita no registrador vem da ULA se ativo, do contrário vem da memória
-		ULA_OP       : OUT std_logic_vector(2 downto 0); -- TODO: ver se precisa de mais do que 2
+		MEM_PARA_REG : OUT std_logic; -- O valor de escrita no registrador vem da memória se ativo, do contrário vem da ULA
+		ULA_OP       : OUT std_logic_vector(2 downto 0);
 		ESC_MEM      : OUT std_logic; -- Define se vai escrever em Memória o dado no campo de dado no endereço informado
 		ULA_FONT     : OUT std_logic; -- Define de onde vem o valor do segundo operando da ULA (do BDR, 1, ou da extensão de bits, 0)
 		ESC_REG      : OUT std_logic  -- Decide se vai ou não escrever no BDR
@@ -43,7 +43,7 @@ end entity;
 
 architecture main of uc is
 begin
-	process(OPCODE)
+	process(OPCODE, CLOCK)
 	begin
         case OPCODE is -- referencia: pg 445 do livro do Patterson e do Hennessy
 				-- Instruções do Tipo R
@@ -79,12 +79,12 @@ begin
 					 REG_DEST     <= '0';
                 BRANCH       <= '0';
                 LER_MEM      <= '1';
-                MEM_PARA_REG <= '1'; -- o valor da sa´ida de mem´oria vai para o BDR
+                MEM_PARA_REG <= '1'; -- o valor da saída de memória vai para o BDR
                 ULA_OP       <= "000"; -- soma, pois vai calcular o endereço
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '1'; -- o segundo operando da ula vem do extensor
                 ESC_REG      <= '1';
-				when "0101" => -- sw              ------------- verificar abaixos
+				when "0101" => -- sw
 					 REG_DEST     <= '0';
                 BRANCH       <= '0';
                 LER_MEM      <= '0';
@@ -98,16 +98,16 @@ begin
                 BRANCH       <= '1'; -- Pode relizar o salto
                 LER_MEM      <= '0';
                 MEM_PARA_REG <= '0';
-                ULA_OP       <= "001"; -- subtraç~ao, dependendo do resultado
+                ULA_OP       <= "111";
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '0'; -- o segundo operando da ula vem do bdr
                 ESC_REG      <= '0';
-				when "0111" => -- j DESLOCA EM BYTES OU BITS? pag 445 do livro diz como implementa o jump
+				when "0111" => -- j
 					 REG_DEST     <= '0';
                 BRANCH       <= '1'; -- Realiza o salto
                 LER_MEM      <= '0';
                 MEM_PARA_REG <= '0';
-                ULA_OP       <= "111"; -- a ula vai jogar o zero para realizar o salto
+                ULA_OP       <= "100"; -- a ula vai jogar o zero para realizar o salto
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '1';
                 ESC_REG      <= '0';
