@@ -4,7 +4,6 @@
 -- Responsavel por armazenar o endereço da proxima
 -- instruçao (do banco de instruçoes) a ser executada.
 ------------------------------------------------------------
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;

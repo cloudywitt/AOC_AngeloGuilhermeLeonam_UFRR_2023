@@ -18,7 +18,7 @@ entity bdr is
 		ENDERECO_REG_ESC : IN std_logic_vector(2 downto 0); -- Escrita em registradores
 		DADO_ESC : IN std_logic_vector(15 downto 0);
 		
-		-- Sa´idas
+		-- Saídas
 		REG1_VALOR : OUT std_logic_vector(15 downto 0);
 		REG2_VALOR : OUT std_logic_vector(15 downto 0)
 	);
@@ -32,12 +32,12 @@ begin
 	process(CLOCK) -- faz executar o process toda vez q os valores dentro mudam
 	begin
 		if rising_edge(CLOCK) then
-		-- Operaç~ao de escrita em registradores
+		-- Operação de escrita em registradores
 			if (ESC_REG = '1') then
 				banco_de_reg(to_integer(unsigned(ENDERECO_REG_ESC))) <= DADO_ESC;
 			end if;
 		end if;
-		-- Operaç~ao de leitura de registradores
+		-- Operação de leitura de registradores
 		REG1_VALOR <= banco_de_reg(to_integer(unsigned(REG1_ENDERECO)));
 		REG2_VALOR <= banco_de_reg(to_integer(unsigned(REG2_ENDERECO)));
 	end process;
