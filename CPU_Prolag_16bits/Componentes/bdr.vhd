@@ -25,7 +25,7 @@ entity bdr is
 end entity;
 
 architecture main of bdr is
-	type bdr_tipo is array(2 downto 0) of std_logic_vector(15 downto 0);
+	type bdr_tipo is array(0 to 7) of std_logic_vector(15 downto 0);
 	
 	signal banco_de_reg : bdr_tipo;
 begin
