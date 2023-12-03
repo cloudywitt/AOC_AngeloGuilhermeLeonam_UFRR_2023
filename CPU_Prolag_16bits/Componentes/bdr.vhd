@@ -27,7 +27,10 @@ end entity;
 architecture main of bdr is
 	type bdr_tipo is array(0 to 7) of std_logic_vector(15 downto 0);
 	
-	signal banco_de_reg : bdr_tipo;
+	signal banco_de_reg : bdr_tipo := (
+		0 => "0000000000000000",
+		others => "1111111111111111"
+	);
 begin
 	process(CLOCK) -- Executa toda a vez que o clock altera
 	begin
