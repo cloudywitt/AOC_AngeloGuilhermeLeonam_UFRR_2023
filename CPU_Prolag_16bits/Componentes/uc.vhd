@@ -37,7 +37,8 @@ entity uc is
 		ULA_OP       : OUT std_logic_vector(2 downto 0);
 		ESC_MEM      : OUT std_logic; -- Define se vai escrever em Memória o dado no campo de dado no endereço informado
 		ULA_FONT     : OUT std_logic; -- Define de onde vem o valor do segundo operando da ULA (do BDR, 1, ou da extensão de bits, 0)
-		ESC_REG      : OUT std_logic  -- Decide se vai ou não escrever no BDR
+		ESC_REG      : OUT std_logic; -- Decide se vai ou não escrever no BDR
+		SALTO_EXTEND : OUT std_logic  -- Define de qual extensor vem o endereço do salto
 	);
 end entity;
 
@@ -56,6 +57,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '0'; -- O segundo operando da ula vem da segunda sa´ida do BDR
                 ESC_REG      <= '1'; -- Define a que vai escrever no Bando de Registradores
+					 SALTO_EXTEND <= '0';
 				-- Instruções do Tipo I
 					  when "0010" => -- addi
                 REG_DEST     <= '0'; -- n~ao importa, ´e amrmazenado em rt de qualquer jeito
@@ -66,6 +68,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '1'; -- O segundo operando da ula vem do extensor
                 ESC_REG      <= '1';
+					 SALTO_EXTEND <= '0';
 				when "0011" => -- subi
                 REG_DEST     <= '0';
                 BRANCH       <= '0';
@@ -75,6 +78,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '1';
                 ESC_REG      <= '1';
+					 SALTO_EXTEND <= '0';
 				when "0100" => -- lw
 					 REG_DEST     <= '0';
                 BRANCH       <= '0';
@@ -84,6 +88,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '1'; -- o segundo operando da ula vem do extensor
                 ESC_REG      <= '1';
+					 SALTO_EXTEND <= '0';
 				when "0101" => -- sw
 					 REG_DEST     <= '0';
                 BRANCH       <= '0';
@@ -93,6 +98,7 @@ begin
                 ESC_MEM      <= '1';
                 ULA_FONT     <= '1'; -- o segundo operando da ula vem do extensor
                 ESC_REG      <= '0';
+					 SALTO_EXTEND <= '0';
 				when "0110" => -- beq
 					 REG_DEST     <= '0';
                 BRANCH       <= '1'; -- Pode relizar o salto
@@ -102,6 +108,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '0'; -- o segundo operando da ula vem do bdr
                 ESC_REG      <= '0';
+					 SALTO_EXTEND <= '1'; -- o endereço do salto vem do extensor da ula
 				when "0111" => -- j
 					 REG_DEST     <= '0';
                 BRANCH       <= '1'; -- Realiza o salto
@@ -111,6 +118,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '1';
                 ESC_REG      <= '0';
+					 SALTO_EXTEND <= '0';
 				when others =>
                 REG_DEST     <= '0';
                 BRANCH       <= '0';
@@ -120,6 +128,7 @@ begin
                 ESC_MEM      <= '0';
                 ULA_FONT     <= '0';
                 ESC_REG      <= '0';
+					 SALTO_EXTEND <= '0';
         end case;
     end process;
 end architecture;

@@ -14,7 +14,8 @@ entity prolag is
 		ULA_RESULTADO            : OUT std_logic_vector(15 downto 0);
 		RAM_SAIDA                : OUT std_logic_vector(15 downto 0);
 		R_DEST                   : OUT std_logic;
-		MEM_TO_REG_S             : OUT std_logic
+		MEM_TO_REG_S             : OUT std_logic;
+		ULA_Z							 : OUT std_logic
 		
 		-- MUX_2X1_SAIDA : OUT std_logic_vector(15 downto 0)
 	);
@@ -62,7 +63,8 @@ component uc is
 		ULA_OP       : OUT std_logic_vector(2 downto 0);
 		ESC_MEM      : OUT std_logic;
 		ULA_FONT     : OUT std_logic;
-		ESC_REG      : OUT std_logic
+		ESC_REG      : OUT std_logic;
+		SALTO_EXTEND : OUT std_logic
 	);
 end component;
 
@@ -154,7 +156,7 @@ alias ENDERECO: std_logic_vector(5 downto 0) is ROM_S(5 downto 0);
 -- signal r_entrada_2
 
 -- Flags da UC
-signal FLAG_REG_DEST, FLAG_BRANCH, FLAG_LER_MEM, FLAG_MEM_PARA_REG, FLAG_ESC_MEM, FLAG_ULA_FONT, FLAG_ESC_REG : std_logic;
+signal FLAG_REG_DEST, FLAG_BRANCH, FLAG_LER_MEM, FLAG_MEM_PARA_REG, FLAG_ESC_MEM, FLAG_ULA_FONT, FLAG_ESC_REG, FLAG_EXT_SALTO : std_logic;
 signal FLAG_ULA_OP : std_logic_vector(2 downto 0);
 
 -- signal de saida de ra saida de b do bdr
@@ -179,11 +181,12 @@ signal SAIDA_MEM : std_logic_vector(15 downto 0);
 signal AND_0 : std_logic;
 
 signal PC_INCREMENTADO : std_logic_vector(15 downto 0);
+signal SAIDA_MUX_DOS_EXTENSORES : std_logic_vector(15 downto 0);
 
 begin
 	PORT_PC : pc port map(CLOCK, MUX_DO_PC, PC_S);
 	PORT_ROM : rom_mem port map(CLOCK, PC_S, ROM_S);
-	PORT_UC : uc port map(CLOCK, OP, F, FLAG_REG_DEST, FLAG_BRANCH, FLAG_LER_MEM, FLAG_MEM_PARA_REG, FLAG_ULA_OP, FLAG_ESC_MEM, FLAG_ULA_FONT, FLAG_ESC_REG);
+	PORT_UC : uc port map(CLOCK, OP, F, FLAG_REG_DEST, FLAG_BRANCH, FLAG_LER_MEM, FLAG_MEM_PARA_REG, FLAG_ULA_OP, FLAG_ESC_MEM, FLAG_ULA_FONT, FLAG_ESC_REG, FLAG_EXT_SALTO);
 	PORT_MUX_ENTRADA_BDR : mux2x1_3b port map(RS, RT, FLAG_REG_DEST, MUX_REG_A_SER_ESCRITO);
 	PORT_BDR :bdr port map(CLOCK, FLAG_ESC_REG, RD, RS, MUX_REG_A_SER_ESCRITO, MUX_MEM_SAIDA, REG_SAIDA_1, REG_SAIDA_2);
 	PORT_EXTENSOR_BAIXO : bit_extensor_6_to_16 port map(ENDERECO, EXTENSOR_PARA_ULA);
@@ -192,15 +195,9 @@ begin
 	PORT_ULA : ula_proclag port map(REG_SAIDA_1, MUX_PARA_ULA, FLAG_ULA_OP, RESULTADO_ULA, ZERO_ULA);
 	PORT_MEMORIA : ram_proclag port map(CLOCK, FLAG_LER_MEM, FLAG_ESC_MEM, RESULTADO_ULA, REG_SAIDA_2, SAIDA_MEM);
 	PORT_MUX_MEM : mux2x1 port map(RESULTADO_ULA, SAIDA_MEM, FLAG_MEM_PARA_REG, MUX_MEM_SAIDA);
-	                                      -- dangerous code below
-	PORT_MUX_SALTO : mux2x1 port map(PC_INCREMENTADO, EXTENSOR_DO_ENDERECO, AND_0, MUX_DO_PC);-- see how to turn the increment into a separated signal
-
---	OP <= ROM_S(15 downto 12);
---	RD <= ROM_S(11 downto 9);
---	RS <= ROM_S(8 downto 6);
---	RT <= ROM_S(5 downto 3);
---	F <= ROM_S(2 downto 0);
---	SALTO <= ROM_S(11 downto 0);
+	                                     
+	PORT_MUX_SALTO : mux2x1 port map(PC_INCREMENTADO, SAIDA_MUX_DOS_EXTENSORES, AND_0, MUX_DO_PC);
+	PORT_MUX_EXTENSOR_SALTO : mux2x1 port map(EXTENSOR_DO_ENDERECO, EXTENSOR_PARA_ULA, FLAG_EXT_SALTO, SAIDA_MUX_DOS_EXTENSORES);
 	
 	PC_INCREMENTADO <= std_logic_vector(unsigned(PC_S) + to_unsigned(1, PC_S'length));
 	AND_0 <= FLAG_BRANCH and ZERO_ULA;
@@ -212,6 +209,7 @@ begin
 	BDR_SAIDA_1 <= REG_SAIDA_1;
 	BDR_SAIDA_2 <= REG_SAIDA_2;
 	ULA_RESULTADO <= RESULTADO_ULA;
+	ULA_Z <= ZERO_ULA;
 	
 	-- ULA_OVERFLOW <= 
 	RAM_SAIDA <= MUX_MEM_SAIDA;
