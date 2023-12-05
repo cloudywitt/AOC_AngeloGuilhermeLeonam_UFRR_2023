@@ -72,6 +72,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "ROM_SAIDA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ROM_SAIDA[10]",
+					"strict" : false
+				},
+				{
 					"name" : "ROM_SAIDA[12]",
 					"strict" : false
 				},
@@ -337,6 +369,18 @@
 				},
 				{
 					"name" : "RAM_SAIDA[15]",
+					"strict" : false
+				},
+				{
+					"name" : "R_DEST",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_TO_REG_S",
+					"strict" : false
+				},
+				{
+					"name" : "ULA_Z",
 					"strict" : false
 				},
 				{

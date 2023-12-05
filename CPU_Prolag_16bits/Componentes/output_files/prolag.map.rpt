@@ -1,5 +1,5 @@
 Analysis & Synthesis report for prolag
-Fri Dec  1 18:37:33 2023
+Mon Dec  4 19:27:07 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,12 +13,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -44,14 +43,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Dec  1 18:37:33 2023       ;
+; Analysis & Synthesis Status     ; Successful - Mon Dec  4 19:27:07 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; prolag                                      ;
 ; Top-level Entity Name           ; prolag                                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 32                                          ;
-; Total pins                      ; 99                                          ;
+; Total registers                 ; 4240                                        ;
+; Total pins                      ; 100                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -164,8 +163,9 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -188,87 +188,51 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                              ;
-+---------------------------------------------+----------------------------+
-; Resource                                    ; Usage                      ;
-+---------------------------------------------+----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 29                         ;
-;                                             ;                            ;
-; Combinational ALUT usage for logic          ; 55                         ;
-;     -- 7 input functions                    ; 0                          ;
-;     -- 6 input functions                    ; 2                          ;
-;     -- 5 input functions                    ; 3                          ;
-;     -- 4 input functions                    ; 1                          ;
-;     -- <=3 input functions                  ; 49                         ;
-;                                             ;                            ;
-; Dedicated logic registers                   ; 32                         ;
-;                                             ;                            ;
-; I/O pins                                    ; 99                         ;
-;                                             ;                            ;
-; Total DSP Blocks                            ; 0                          ;
-;                                             ;                            ;
-; Maximum fan-out node                        ; rom_mem:PORT_ROM|rom_mem~4 ;
-; Maximum fan-out                             ; 65                         ;
-; Total fan-out                               ; 453                        ;
-; Average fan-out                             ; 1.59                       ;
-+---------------------------------------------+----------------------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 2955        ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 2019        ;
+;     -- 7 input functions                    ; 34          ;
+;     -- 6 input functions                    ; 1484        ;
+;     -- 5 input functions                    ; 39          ;
+;     -- 4 input functions                    ; 298         ;
+;     -- <=3 input functions                  ; 164         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 4240        ;
+;                                             ;             ;
+; I/O pins                                    ; 100         ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; CLOCK~input ;
+; Maximum fan-out                             ; 4240        ;
+; Total fan-out                               ; 23686       ;
+; Average fan-out                             ; 3.67        ;
++---------------------------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-------------+--------------+
-; |prolag                    ; 55 (16)             ; 32 (0)                    ; 0                 ; 0          ; 99   ; 0            ; |prolag                      ; prolag      ; work         ;
-;    |bdr:PORT_BDR|          ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |prolag|bdr:PORT_BDR         ; bdr         ; work         ;
-;    |pc:PORT_PC|            ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |prolag|pc:PORT_PC           ; pc          ; work         ;
-;    |rom_mem:PORT_ROM|      ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|rom_mem:PORT_ROM     ; rom_mem     ; work         ;
-;    |uc:PORT_UC|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|uc:PORT_UC           ; uc          ; work         ;
-;    |ula_proclag:PORT_ULA|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|ula_proclag:PORT_ULA ; ula_proclag ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                ;
++-------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name ; Library Name ;
++-------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------+--------------+
+; |prolag                             ; 2019 (17)           ; 4240 (0)                  ; 0                 ; 0          ; 100  ; 0            ; |prolag                                ; prolag      ; work         ;
+;    |bdr:PORT_BDR|                   ; 170 (170)           ; 128 (128)                 ; 0                 ; 0          ; 0    ; 0            ; |prolag|bdr:PORT_BDR                   ; bdr         ; work         ;
+;    |mux2x1:PORT_MUX_MEM|            ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|mux2x1:PORT_MUX_MEM            ; mux2x1      ; work         ;
+;    |mux2x1:PORT_MUX_SALTO|          ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|mux2x1:PORT_MUX_SALTO          ; mux2x1      ; work         ;
+;    |mux2x1:PORT_MUX_ULA_ENTRADA|    ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|mux2x1:PORT_MUX_ULA_ENTRADA    ; mux2x1      ; work         ;
+;    |mux2x1_3b:PORT_MUX_ENTRADA_BDR| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|mux2x1_3b:PORT_MUX_ENTRADA_BDR ; mux2x1_3b   ; work         ;
+;    |pc:PORT_PC|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |prolag|pc:PORT_PC                     ; pc          ; work         ;
+;    |ram_proclag:PORT_MEMORIA|       ; 1678 (1678)         ; 4096 (4096)               ; 0                 ; 0          ; 0    ; 0            ; |prolag|ram_proclag:PORT_MEMORIA       ; ram_proclag ; work         ;
+;    |rom_mem:PORT_ROM|               ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|rom_mem:PORT_ROM               ; rom_mem     ; work         ;
+;    |uc:PORT_UC|                     ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|uc:PORT_UC                     ; uc          ; work         ;
+;    |ula_proclag:PORT_ULA|           ; 81 (81)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |prolag|ula_proclag:PORT_ULA           ; ula_proclag ; work         ;
++-------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; bdr:PORT_BDR|banco_de_reg~35           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~36           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~37           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~38           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~39           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~40           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~41           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~42           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~43           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~44           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~45           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~46           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~47           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~48           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~49           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~50           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~51           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~52           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~53           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~54           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~55           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~56           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~57           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~58           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~59           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~60           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~61           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~62           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~63           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~64           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~65           ; Lost fanout        ;
-; bdr:PORT_BDR|banco_de_reg~66           ; Lost fanout        ;
-; Total Number of Removed Registers = 32 ;                    ;
-+----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -276,23 +240,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
-; Number of registers using Synchronous Clear  ; 31    ;
+; Total registers                              ; 4240  ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Clock Enable       ; 4224  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; 1:1                ; 16 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |prolag|ula_proclag:PORT_ULA|Add0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |prolag|pc:PORT_PC|ENDERECO_SAIDA[6] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |prolag|uc:PORT_UC|Mux6              ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; No         ; |prolag|ula_proclag:PORT_ULA|Add0    ;
+; 8:1                ; 15 bits   ; 75 LEs        ; 45 LEs               ; 30 LEs                 ; No         ; |prolag|ula_proclag:PORT_ULA|Mux6    ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |prolag|ula_proclag:PORT_ULA|Add0    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -300,25 +268,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 32                          ;
-;     ENA SCLR          ; 16                          ;
-;     SCLR              ; 15                          ;
-;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 56                          ;
-;     arith             ; 32                          ;
+; arriav_ff             ; 4240                        ;
+;     ENA               ; 4224                        ;
+;     plain             ; 16                          ;
+; arriav_lcell_comb     ; 2021                        ;
+;     arith             ; 33                          ;
 ;         1 data inputs ; 16                          ;
-;         3 data inputs ; 15                          ;
-;         4 data inputs ; 1                           ;
-;     normal            ; 24                          ;
+;         4 data inputs ; 5                           ;
+;         5 data inputs ; 12                          ;
+;     extend            ; 34                          ;
+;         7 data inputs ; 34                          ;
+;     normal            ; 1954                        ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 1                           ;
-;         5 data inputs ; 3                           ;
-;         6 data inputs ; 2                           ;
-; boundary_port         ; 99                          ;
+;         1 data inputs ; 113                         ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 27                          ;
+;         4 data inputs ; 293                         ;
+;         5 data inputs ; 27                          ;
+;         6 data inputs ; 1484                        ;
+; boundary_port         ; 100                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.50                        ;
-; Average LUT depth     ; 3.91                        ;
+; Max LUT depth         ; 13.60                       ;
+; Average LUT depth     ; 8.04                        ;
 +-----------------------+-----------------------------+
 
 
@@ -327,7 +298,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -337,7 +308,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Dec  1 18:37:23 2023
+    Info: Processing started: Mon Dec  4 19:26:53 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off prolag -c prolag
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -363,65 +334,54 @@ Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
     Info (12022): Found design unit 1: pc-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/pc.vhd Line: 20
     Info (12023): Found entity 1: pc File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/pc.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file rom_mem.vhd
-    Info (12022): Found design unit 1: rom_mem-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 46
-    Info (12023): Found entity 1: rom_mem File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 38
+    Info (12022): Found design unit 1: rom_mem-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 49
+    Info (12023): Found entity 1: rom_mem File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 41
 Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
-    Info (12022): Found design unit 1: uc-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 44
+    Info (12022): Found design unit 1: uc-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 45
     Info (12023): Found entity 1: uc File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 24
 Info (12021): Found 2 design units, including 1 entities, in source file prolag.vhd
-    Info (12022): Found design unit 1: prolag-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 23
+    Info (12022): Found design unit 1: prolag-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 24
     Info (12023): Found entity 1: prolag File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file mux2x1.vhd
     Info (12022): Found design unit 1: mux2x1-main File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/mux2x1.vhd Line: 12
     Info (12023): Found entity 1: mux2x1 File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/mux2x1.vhd Line: 4
 Info (12127): Elaborating entity "prolag" for the top level hierarchy
-Info (12128): Elaborating entity "pc" for hierarchy "pc:PORT_PC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 184
-Info (12128): Elaborating entity "rom_mem" for hierarchy "rom_mem:PORT_ROM" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 185
-Warning (10492): VHDL Process Statement warning at rom_mem.vhd(70): signal "rom_mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 70
-Warning (10492): VHDL Process Statement warning at rom_mem.vhd(70): signal "ENDERECO_RECEBIDO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 70
-Info (12128): Elaborating entity "uc" for hierarchy "uc:PORT_UC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 186
-Warning (10492): VHDL Process Statement warning at uc.vhd(55): signal "FUNCT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 55
-Info (12128): Elaborating entity "mux2x1_3b" for hierarchy "mux2x1_3b:PORT_MUX_ENTRADA_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 187
-Info (12128): Elaborating entity "bdr" for hierarchy "bdr:PORT_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 188
-Warning (10492): VHDL Process Statement warning at bdr.vhd(41): signal "banco_de_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 41
-Warning (10492): VHDL Process Statement warning at bdr.vhd(41): signal "REG1_ENDERECO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 41
-Warning (10492): VHDL Process Statement warning at bdr.vhd(42): signal "banco_de_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 42
-Warning (10492): VHDL Process Statement warning at bdr.vhd(42): signal "REG2_ENDERECO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 42
-Info (12128): Elaborating entity "bit_extensor_6_to_16" for hierarchy "bit_extensor_6_to_16:PORT_EXTENSOR_BAIXO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 189
-Info (12128): Elaborating entity "bit_extensor_12_to_16" for hierarchy "bit_extensor_12_to_16:PORT_EXTENSOR_DO_ENDERECO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 190
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PORT_MUX_ULA_ENTRADA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 191
-Info (12128): Elaborating entity "ula_proclag" for hierarchy "ula_proclag:PORT_ULA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 192
-Info (12128): Elaborating entity "ram_proclag" for hierarchy "ram_proclag:PORT_MEMORIA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 193
+Info (12128): Elaborating entity "pc" for hierarchy "pc:PORT_PC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 187
+Info (12128): Elaborating entity "rom_mem" for hierarchy "rom_mem:PORT_ROM" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 188
+Warning (10492): VHDL Process Statement warning at rom_mem.vhd(89): signal "rom_mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at rom_mem.vhd(89): signal "ENDERECO_RECEBIDO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/rom_mem.vhd Line: 89
+Info (12128): Elaborating entity "uc" for hierarchy "uc:PORT_UC" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 189
+Warning (10492): VHDL Process Statement warning at uc.vhd(56): signal "FUNCT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/uc.vhd Line: 56
+Info (12128): Elaborating entity "mux2x1_3b" for hierarchy "mux2x1_3b:PORT_MUX_ENTRADA_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 190
+Info (12128): Elaborating entity "bdr" for hierarchy "bdr:PORT_BDR" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 191
+Warning (10492): VHDL Process Statement warning at bdr.vhd(44): signal "banco_de_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at bdr.vhd(44): signal "REG1_ENDERECO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at bdr.vhd(45): signal "banco_de_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at bdr.vhd(45): signal "REG2_ENDERECO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 45
+Info (12128): Elaborating entity "bit_extensor_6_to_16" for hierarchy "bit_extensor_6_to_16:PORT_EXTENSOR_BAIXO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 192
+Info (12128): Elaborating entity "bit_extensor_12_to_16" for hierarchy "bit_extensor_12_to_16:PORT_EXTENSOR_DO_ENDERECO" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 193
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PORT_MUX_ULA_ENTRADA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 194
+Info (12128): Elaborating entity "ula_proclag" for hierarchy "ula_proclag:PORT_ULA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 195
+Info (12128): Elaborating entity "ram_proclag" for hierarchy "ram_proclag:PORT_MEMORIA" File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 196
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "ram_proclag:PORT_MEMORIA|RAM" is uninferred due to asynchronous read logic File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/ram_proclag.vhd Line: 23
     Info (276007): RAM logic "bdr:PORT_BDR|banco_de_reg" is uninferred due to asynchronous read logic File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/bdr.vhd Line: 30
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ROM_SAIDA[1]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[2]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
     Warning (13410): Pin "ROM_SAIDA[3]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[4]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
     Warning (13410): Pin "ROM_SAIDA[5]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[6]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[7]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[8]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[9]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "ROM_SAIDA[10]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
     Warning (13410): Pin "ROM_SAIDA[11]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
     Warning (13410): Pin "ROM_SAIDA[15]" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 12
-    Warning (13410): Pin "R_DEST" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 16
-    Warning (13410): Pin "MEM_TO_REG_S" is stuck at GND File: /home/cloudywitt/Programming/github/AOC_AngeloGuilhermeLeonam_UFRR_2023/CPU_Prolag_16bits/Componentes/prolag.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 32 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 170 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6231 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 98 output pins
-    Info (21061): Implemented 71 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 1070 megabytes
-    Info: Processing ended: Fri Dec  1 18:37:33 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:25
+    Info (21059): Implemented 99 output pins
+    Info (21061): Implemented 6131 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 1060 megabytes
+    Info: Processing ended: Mon Dec  4 19:27:07 2023
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:27
 
 
