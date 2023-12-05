@@ -1,2 +1,3 @@
-# AOC_AngeloGuilhermeLeonam_UFRR_2023
-Computer Architecture and Organization final project
+# ProLAG
+Projeto final da disciplina de Arquitetura e Organização de Computadores, ofertada
+pelo Prof. Dr. Herbert Oliveira Rocha no semestre 2023.2
