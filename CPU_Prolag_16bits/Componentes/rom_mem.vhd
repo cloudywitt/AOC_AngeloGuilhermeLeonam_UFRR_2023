@@ -53,23 +53,23 @@ architecture main of rom_mem is
 	 -- declaração do sinal rom_mem do tipo ROM
     signal rom_mem: rom_tipo := ( -- cria todo o vetor da ram (tipo declarado acima) para ser referenciado como função abaixo
         -- Teste do beq
-        -- 0 => "0010000001000010", -- addi $t0, $zero, 2
-        -- 1 => "0010000010000010", -- addi $t1, $zero, 2
-        -- 2 => "0110001010000100", -- beq $t0, $t1, 100 (pula para a instrução 4)
-        -- 3 => "0111000000000000", -- j 0 (ignorado)
-        -- 4 => "0001001010011001", -- sub $t2, $t0, $t1
+        0 => "0010000001000010", -- addi $t0, $zero, 2
+        1 => "0010000010000010", -- addi $t1, $zero, 2
+        2 => "0110001010000100", -- beq $t0, $t1, 100 (pula para a instrução 4)
+        3 => "0111000000000000", -- j 0 (ignorado)
+        4 => "0001001010011001", -- sub $t2, $t0, $t1
 
         -- Teste Load e Store
         -- 0 => "0010000001000101", -- addi $t0, $zero, 5
         -- 1 => "0010000010000001", -- addi $t1, $zero, 1
-		-- 2 => "0101010001000101", -- sw $t0, 5, $t1 (joga $t0 em 5 + $t1)
-		-- 3 => "0100010011000101", -- lw $t2, 5, $t1 (carrega 5 + $t1 em $t2)
-		-- 4 => "0001011000011000", -- add $t2, $t2, $zero
+		  -- 2 => "0101010001000101", -- sw $t0, 5, $t1 (joga $t0 em 5 + $t1)
+		  -- 3 => "0100010011000101", -- lw $t2, 5, $t1 (carrega 5 + $t1 em $t2)
+		  -- 4 => "0001011000011000", -- add $t2, $t2, $zero
 	
         -- Teste do j
-        0 => "0010000001000000", -- addi $t0, $zero, 0
-        1 => "0010001001000001", -- addi $t0, $t0, 1
-        2 => "0111000000000001", -- j 1
+        -- 0 => "0010000001000000", -- addi $t0, $zero, 0
+        -- 1 => "0010001001000001", -- addi $t0, $t0, 1
+        -- 2 => "0111000000000001", -- j 1
 
         -- Soma dos naturais até 3
         -- 0 => "0010000001000001", -- addi $t0, $zero, 1 (inicializa $t0 com 1)
@@ -80,7 +80,7 @@ architecture main of rom_mem is
         -- 5 => "0010001001000001", -- addi $t0, $t0, 1 (incrementa a variável de apoio)
         -- 6 => "0111000000000011", -- j 3 (volta para o beq)
         -- 7 => "0001010000010000", -- add $t1, $t1, $zero (verifica a soma)
-	 others => "0000000000000000" -- por começar os opcodes do 1, o tudo 0 não dá nada
+        others => "0000000000000000" -- por começar os opcodes do 1, o tudo 0 não dá nada
 	);
     begin
         process (CLOCK)
